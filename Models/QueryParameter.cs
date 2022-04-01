@@ -19,9 +19,15 @@ namespace Allsop.Models
             set { _pageSize = value > _maxPageSize ? _maxPageSize : value; }
         }
 
-        public string? ProductName { get; set; }
-        public int? BrandId { get; set; }
-        public int? CategoryId { get; set; }
-        public string? OrderType { get; set; }
+        public string ProductName { get; set; }
+        public int BrandId { get; set; }
+        public int CategoryId { get; set; }
+        public string OrderType { get; set; }
+
+        public QueryParameter()
+        {
+            ProductName = string.Empty;
+            OrderType = string.Empty;
+        }
     }
 }

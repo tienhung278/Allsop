@@ -6,6 +6,11 @@ namespace Allsop.Models.Entities
     {
         [Required]
         [MaxLength(100)]
-        public string? Name { get; set; }
+        public string Name { get; set; }
+
+        public Brand()
+        {
+            Name = string.Empty;
+        }
     }
 }

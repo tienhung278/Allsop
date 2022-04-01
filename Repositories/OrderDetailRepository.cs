@@ -100,9 +100,15 @@ namespace Allsop.Repositories
 
         private bool IsValidProduct(OrderDetail orderDetail)
         {
-            var productCount = product.GetProducts()
-                                        .SingleOrDefault(p => p.Id == orderDetail.ProductId).Quantity;
-            return orderDetail.Quantity <= productCount;
+            int quantity = 0;
+
+            var p = product.GetProducts()
+                            .SingleOrDefault(p => p.Id == orderDetail.ProductId);
+            if (p != null)
+            {
+                quantity = p.Quantity;
+            }
+            return orderDetail.Quantity <= quantity;
         }
     }    
 }

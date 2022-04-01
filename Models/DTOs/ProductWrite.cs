@@ -7,17 +7,23 @@ namespace Allsop.Models.DTOs
     {
         [Required]
         [MaxLength(100)]
-        public string? Name { get; set; }
+        public string Name { get; set; }
         [Required]
         public double Price { get; set; }
         [Required]
         [MaxLength(500)]
-        public string? Description { get; set; }
+        public string Description { get; set; }
         [Required]
         public int Quantity { get; set; }
         [Required]
         public int BrandId { get; set; }
         [Required]
         public int CategoryId { get; set; }
+
+        public ProductWrite()
+        {
+            Name = string.Empty;
+            Description = string.Empty;
+        }
     }
 }

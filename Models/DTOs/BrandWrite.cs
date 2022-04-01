@@ -6,6 +6,11 @@ namespace Allsop.Models.DTOs
     {
         [Required]
         [MaxLength(100)]
-        public string? Name { get; set; }
+        public string Name { get; set; }
+
+        public BrandWrite()
+        {
+            Name = string.Empty;
+        }
     }
 }

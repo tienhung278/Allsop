@@ -53,12 +53,12 @@ namespace Allsop.Repositories
                                                 p.Name.ToLower().Contains(parameter.ProductName.ToLower()));
             }
 
-            if (parameter.BrandId.HasValue)
+            if (parameter.BrandId > 0)
             {
                 products = products.Where(p => p.BrandId == parameter.BrandId);
             }
 
-            if (parameter.CategoryId.HasValue)
+            if (parameter.CategoryId > 0)
             {
                 products = products.Where(p => p.CategoryId == parameter.CategoryId);
             }
@@ -140,13 +140,13 @@ namespace Allsop.Repositories
                 searchActivity.SearchValue = parameter.ProductName;
             }
 
-            if (parameter.BrandId.HasValue)
+            if (parameter.BrandId > 0)
             {
                 searchActivity.FilterType = ProductProperty.Brand;
                 searchActivity.FilterValue = parameter.BrandId;
             }
 
-            if (parameter.CategoryId.HasValue)
+            if (parameter.CategoryId > 0)
             {
                 searchActivity.FilterType = ProductProperty.Category;
                 searchActivity.FilterValue = parameter.CategoryId;

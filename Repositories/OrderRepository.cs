@@ -47,7 +47,7 @@ namespace Allsop.Repositories
 
         public bool CreateOrder(Order order, string userId)
         {
-            if (!IsValidVoucher(order.VoucherCode))
+            if (!string.IsNullOrEmpty(order.VoucherCode) && !IsValidVoucher(order.VoucherCode))
             {
                 return false;
             }
@@ -68,7 +68,7 @@ namespace Allsop.Repositories
 
         public bool UpdateOrder(Order order, string userId)
         {
-            if (!IsValidVoucher(order.VoucherCode))
+            if (!string.IsNullOrEmpty(order.VoucherCode) && !IsValidVoucher(order.VoucherCode))
             {
                 return false;
             }
@@ -114,7 +114,8 @@ namespace Allsop.Repositories
 
         private bool IsValidVoucher(string code)
         {
-            return voucher.GetVouchers().Any(v => v.Code.ToLower() == code.ToLower());
+            return voucher.GetVouchers().Any(v => !string.IsNullOrEmpty(v.Code) && 
+                                                    v.Code.ToLower() == code.ToLower());
         }
     }
 }

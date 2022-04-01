@@ -6,8 +6,14 @@ namespace Allsop.Models.Entities
     {
         [Required]
         public EventType EventType { get; set; }
-        public string? OldContent { get; set; }
-        public string? NewContent { get; set; }
+        public string OldContent { get; set; }
+        public string NewContent { get; set; }
+
+        public EventStore()
+        {
+            OldContent = string.Empty;
+            NewContent = string.Empty;
+        }
     }
 
     public enum EventType

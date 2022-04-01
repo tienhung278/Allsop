@@ -6,19 +6,27 @@ namespace Allsop.Models.Entities
     {
         [Required]
         [MaxLength(100)]
-        public string? Name { get; set; }
+        public string Name { get; set; }
         [Required]
         public decimal Price { get; set; }
         [Required]
         [MaxLength(500)]
-        public string? Description { get; set; }
+        public string Description { get; set; }
         [Required]
         public int Quantity { get; set; }
         [Required]
         public int BrandId { get; set; }
-        public Brand? Brand { get; set; }
+        public Brand Brand { get; set; }
         [Required]
         public int CategoryId { get; set; }
-        public Category? Category { get; set; }
+        public Category Category { get; set; }
+
+        public Product()
+        {
+            Name = string.Empty;
+            Description = string.Empty;
+            Brand = new Brand();
+            Category = new Category();
+        }
     }
 }
